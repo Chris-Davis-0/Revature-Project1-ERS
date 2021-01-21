@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+#backborder{
+	background-color: rgb(52,58,64);
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#centerpiece{
+	background-color: rbg(20,80,20); 
+}
+
+html,body{
+	background-color: black;
+	height: 100%;
+	margin: 8px;
+}
+
+.toast{
+	background-color: white;
+}
+
+.flex-fill{
+	flex:1;
+}
+
+.row{
+	padding: 15px;
+	margin: 20px;
+}
+
+.col-8{
+	min-width: 600px;
+}

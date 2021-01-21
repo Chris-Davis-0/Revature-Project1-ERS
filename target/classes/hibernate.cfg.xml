@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.url">jdbc:mariadb://database-0.cjzlpxmbn6he.us-east-2.rds.amazonaws.com:3306/mi6db</property>
+		<property name="hibernate.connection.username">mi6</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.connection.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.show.sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.connection.pool_size">25</property> <!-- Connection pool issues no time to integrate pool manager -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<mapping class="com.revature.chrisdavis.model.User"/>
+		<mapping class="com.revature.chrisdavis.model.UserRole"/>
+		<mapping class="com.revature.chrisdavis.model.Reimbursement"/>
+		<mapping class="com.revature.chrisdavis.model.ReimbursementStatus"/>
+		<mapping class="com.revature.chrisdavis.model.ReimbursementType"/>
+	</session-factory>
+</hibernate-configuration>

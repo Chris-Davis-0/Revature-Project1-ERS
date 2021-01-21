@@ -1,0 +1,9 @@
+---
+ERS_USERS:
+  -ERS_USER_ID: 1
+  USER_EMAIL: "bondjamesbond@mi6.gov"
+  USER_FIRST_NAME: "James"
+  USER_LAST_NAME: "Bond"
+  ERS_PASSWORD: "shakennotstirred62"
+  ERS_USERNAME: "007"
+  USER_ROLE: "Operative"
