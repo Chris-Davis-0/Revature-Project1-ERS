@@ -1,6 +1,6 @@
 # Revature-Project1-ERS
 ## Project Description
-An expense reimbursement system for for the Britain's Secret Intelligence Service.
+An expense reimbursement system for the Britain's Secret Intelligence Service.
 
 The Expense Reimbursement System (ERS) will manage the process of reimbursing employees for expenses incurred while on company time. 
 All employees in the company can login and submit requests for reimbursement and view their past tickets and pending requests. 
