@@ -20,9 +20,6 @@ public class UserController {
 			ctx.status(200);
 			ctx.sessionAttribute("username", username);
 			ctx.sessionAttribute("clearance", uService.getUserRoleByUsername(username));
-			//ApplicationDriver.sessionUsername = username;
-			//ApplicationDriver.sessionClearance = uService.getUserRoleByUsername(username);
-			//ApplicationDriver.logActivity.info("User <"+username+"> has logged in with clearance level <"+ApplicationDriver.sessionClearance+">");
 		} else{
 			ctx.status(401);
 		}
@@ -53,15 +50,12 @@ public class UserController {
 			ctx.status(401);
 		} else ctx.status(200);
 		ctx.result(sessionUser+","+sessionClearance);
-		System.out.println("Printing session user => "+sessionUser+","+sessionClearance);
-		//ctx.result(ApplicationDriver.sessionUsername);
 	};
 	
 	public Handler getUserClearance = (ctx) ->{
 		ctx.result((String)ctx.sessionAttribute("clearance"));
 		if(ctx.sessionAttribute("clearance") == "Unauthorized") ctx.status(401);
 		ctx.status(200);
-		//ctx.result(ApplicationDriver.sessionClearance);
 		
 	};
 	
@@ -69,9 +63,6 @@ public class UserController {
 		ctx.sessionAttribute("username", "Unauthorized");
 		ctx.sessionAttribute("clearance", "Unauthorized");
 		ctx.status(200);
-		//ApplicationDriver.logActivity.info("User: <"+ApplicationDriver.sessionUsername+"> has logged out.");
-		//ApplicationDriver.sessionUsername = ApplicationDriver.UNAUTHORIZED;
-		//ApplicationDriver.sessionUsername = ApplicationDriver.UNAUTHORIZED;
 	};
 	
 	

@@ -65,7 +65,7 @@ public class ReimbursementDao {
 			userRoleId = -1;
 		}
 		Query<Reimbursement> q = s.createQuery("FROM Reimbursement where userAuthor.userRole.id < '"+userRoleId+"' "
-				+ "and userAuthor.id != '"+sessionUser.getID()+"'", Reimbursement.class);
+				+ "and userAuthor.id <> '"+sessionUser.getID()+"'", Reimbursement.class);
 		return q.list();
 	}
 	
@@ -78,7 +78,7 @@ public class ReimbursementDao {
 			userRoleId = -1;
 		}
 		Query<Reimbursement> q = s.createQuery("FROM Reimbursement where userAuthor.userRole.id < '"+userRoleId+"' "
-				+ "and userAuthor.id != '"+sessionUser.getID()+"' and ersStatus.status = '"+filter+"'", Reimbursement.class);
+				+ "and userAuthor.id <> '"+sessionUser.getID()+"' and ersStatus.status = '"+filter+"'", Reimbursement.class);
 		return q.list();
 	}
 		

@@ -10,13 +10,11 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col" id="backborder">
+		<div class="col-2">
 		</div>
-		<span class="border border-5">
-		<div class="col" id="centerpiece">
-			
-			<div class="row">
-				<img class="align-self-start mr-0" src="/images/MI6_Logo.png" alt="MI6 Logo">
+		<div class="col-8" id="backborder">
+			<div class="row justify-content-center">
+				<img class="rounded mx-auto d-block" src="/images/MI6_Logo.png" alt="MI6 Logo">
 			</div>
 			<div id="loginfailalert" class="alert alert-danger text-center m-3" role="alert"> 
 				Incorrect login information given
@@ -24,19 +22,16 @@
 			<div class="row justify-content-center">
 				<form id="login-form" method="post" action="/mi6/users/login">
 				  <div class="form-group">
-					    <input type="text" class="form-control" name="inputUserName" aria-describedby="emailHelp" placeholder="Codename">
+					<input type="text" class="form-control" name="inputUserName" aria-describedby="emailHelp" placeholder="Codename">
 				  </div>
 				  <div class="form-group">
 				    <input type="password" class="form-control" name="inputUserPassword" placeholder="Password">
 				  </div>
 				  <div class="col text-center">
-				  	<button id="submitLogin" type="submit" class="btn btn-dark">Submit</button>
+				  	<button id="submitLogin" type="submit" class="btn btn-light">Submit</button>
 				  </div>
 				</form>
 			</div>
-		</div>
-		</span>
-		<div class="col" id="backborder">
 		</div>
 	</div>
 </div>

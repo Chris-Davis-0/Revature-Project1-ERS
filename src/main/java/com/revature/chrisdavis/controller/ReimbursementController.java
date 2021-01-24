@@ -20,12 +20,9 @@ public class ReimbursementController {
 	public Handler getAuthorReimb = (ctx) -> {
 		String filter = ctx.header("filter").substring(8);
 		List<Reimbursement> reimb;
-		System.out.println("Get author reimb for author => "+ ctx.sessionAttribute("username"));
 		if(filter.equals("All")) {
-			//reimb = rService.selectAllReimbByUserName(ApplicationDriver.sessionUsername);
 			reimb = rService.selectAllReimbByUserName(ctx.sessionAttribute("username"));
 		}else {
-			//reimb = rService.selectAllReimbByUserName(ApplicationDriver.sessionUsername, filter);
 			reimb = rService.selectAllReimbByUserName(ctx.sessionAttribute("username"), filter);
 		}
 		ObjectMapper mapper = new ObjectMapper();
@@ -37,11 +34,9 @@ public class ReimbursementController {
 		String filter = ctx.header("filter").substring(8);
 		List<Reimbursement> reimb;
 		if(filter.equals("All")) {
-//			reimb = rService.selectReimbToResolveBySessionUser(ApplicationDriver.sessionUsername);
-			reimb = rService.selectAllReimbByUserName(ctx.sessionAttribute("username"));
+			reimb = rService.selectReimbToResolveBySessionUser(ctx.sessionAttribute("username"));
 		} else {
-//			reimb = rService.selectReimbToResolveBySessionUser(ApplicationDriver.sessionUsername, filter);
-			reimb = rService.selectAllReimbByUserName(ctx.sessionAttribute("username"), filter);
+			reimb = rService.selectReimbToResolveBySessionUser(ctx.sessionAttribute("username"), filter);
 		}
 		ObjectMapper mapper = new ObjectMapper();
 		TreeNode json = mapper.readTree(reimb.toString());
@@ -52,11 +47,8 @@ public class ReimbursementController {
 		String expenseType = ctx.formParam("requestType");
 		String expenseAmount = ctx.formParam("requestAmount");
 		String expenseDescription = ctx.formParam("requestDescription");
-		//fix this!
-		System.out.println("Creating ER => "+expenseType+"\t"+expenseAmount+"\t"+expenseDescription);
 		if(rService.createRequest(ctx.sessionAttribute("username"), expenseType, expenseAmount, expenseDescription)) {
 			ctx.status(201);
-//			ApplicationDriver.logActivity.info("User <"+ApplicationDriver.sessionUsername+"> has submitted an expense request");
 			ApplicationDriver.logActivity.info("User <"+ctx.sessionAttribute("username")+"> has submitted an expense request");
 		} else ctx.status(400);
 		ctx.redirect("/html/welcome.html");
@@ -68,10 +60,8 @@ public class ReimbursementController {
 		String requestComments = ctx.formParam("resolverComments");
 		if(rService.updateRequest(ctx.sessionAttribute("username"), requestId, requestStatus, requestComments)) {
 			ctx.status(200);
-//			ApplicationDriver.logActivity.info("User <"+ApplicationDriver.sessionUsername+"> has resolved an expense request");
 			ApplicationDriver.logActivity.info("User <"+ctx.sessionAttribute("username")+"> has submitted an expense request");
 		} else ctx.status(400);
-		//ctx.redirect("/html/processreimbursements.html");
 	};
 
 }

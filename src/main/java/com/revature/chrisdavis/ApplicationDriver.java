@@ -29,9 +29,6 @@ import io.javalin.Javalin;
 
 
 public class ApplicationDriver {
-	//public static final String UNAUTHORIZED = "Unauthorized";
-	//public static String sessionUsername = UNAUTHORIZED;
-	//public static String sessionClearance = UNAUTHORIZED;
 	public static final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("MM-DD-YYYY HH:mm:ss");
 	private static HibernateUtil hiUtil = new HibernateUtil();
 	

@@ -31,12 +31,9 @@ function requestNavUser(){
 	response.onreadystatechange = function(){
 		let userCredentials = response.responseText.split(",", 2);
 		if(response.readyState == 4 && response.status == 200){
-			console.log("response = 200");
-			//document.getElementById('profileDropdown').innerHTML = `${response.responseText}`;
 			document.getElementById('profileDropdown').innerHTML = `${userCredentials[0]}`;
 			document.getElementById('clearancelevel').innerHTML = `Clearance Level: ${userCredentials[1]}`;
 		}else if(response.readyState == 4 && response.status == 401){
-			console.log("response = 401");
 			window.location.replace('/html/loginretry.html');
 		}
 	}
